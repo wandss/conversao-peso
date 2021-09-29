@@ -25,7 +25,7 @@ RUN apt update && \
     apt install -y apt-transport-https && \
     apt update && \
     apt install -y aspnetcore-runtime-5.0
-    #apt install -y donet-sdk-5.0
 WORKDIR /app
 COPY --from=publish /app/publish .
+ENV ASPNETCORE_URLS=http://*:80/
 ENTRYPOINT ["dotnet", "ConversaoPeso.Web.dll"]
